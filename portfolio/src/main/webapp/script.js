@@ -33,3 +33,10 @@ function getDataServlet() {
     document.getElementById('message-container').innerHTML = message;
   });
 }
+function getCommentJson() {
+  fetch('/data')
+  .then(response => response.text())
+  .then((comment)=> {
+    document.getElementById('comment-container').innerHTML = comment;
+  });
+}
