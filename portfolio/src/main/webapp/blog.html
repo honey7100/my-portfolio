@@ -13,6 +13,10 @@
         font: 22px 'Quicksand', sans-serif;
         background-color: #a8d0e6;
     }
+
+    form{
+        font: 22px 'Quicksand', sans-serif;
+    }
 </style>
 
 <body>
@@ -50,13 +54,11 @@
     <p> 1. I was able to interview with Google at the conference which led to me getting and accepting
         and internship offer for STEP.</p>
     <p> 2. I was able to build new friendships with some wonderful girls.</p>
-    <form>
+    <form action="/data" method="POST">
         <label for="comment"> Comments or Questions:</label><br>
-        <input type="text" id="comment" name="comment">
-        <input type="submit" value="POST">
+        <input type="text" id="comment" name="comment-input">
+        <input type="submit" value="share">
     </form>
-    <button onclick="getCommentsJson()">Fetch comments!</button>
     <div id="comment-container"></div>
 </body>
-
 </html>
