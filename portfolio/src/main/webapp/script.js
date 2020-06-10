@@ -17,7 +17,7 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+    ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -28,15 +28,15 @@ function addRandomGreeting() {
 }
 function getDataServlet() {
   fetch('/data')
-  .then(response => response.text())
-  .then((message) => {
-    document.getElementById('message-container').innerHTML = message;
-  });
+    .then(response => response.text())
+    .then((message) => {
+      document.getElementById('message-container').innerHTML = message;
+    });
 }
 function getCommentsJson() {
   fetch('/data')
-  .then(response => response.text())
-  .then((comment)=> {
-    document.getElementById('comment-container').innerHTML = comment;
-  });
+    .then(response => response.text())
+    .then((comment) => {
+      document.getElementById('comment-container').innerHTML = comment;
+    });
 }
