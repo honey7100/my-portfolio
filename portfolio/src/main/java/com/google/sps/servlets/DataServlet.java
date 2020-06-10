@@ -28,20 +28,25 @@ import javax.servlet.http.HttpServletResponse;
 public class DataServlet extends HttpServlet {
   
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     List<String> comments = new ArrayList<>();
-    comments.add("How do I sign up to go next year?");
-    comments.add("Is Grace Hopper a real person?");
-    comments.add("Wow! I bet you got a lot of swag!lol ");
-   
+    String comment = getParameter(request, "comment-input", "");
+    comments.add(comment);
+    response.sendRedirect("/blog.html");
     response.setContentType("application/json;");
-    response.getWriter().println(convertToJsonUsingGson(comments));
-
+    response.getWriter().println(convertToJson(comments));
   }
 
   static String convertToJson(List comments){
     Gson gson = new Gson();
     return gson.toJson(comments);
+  }
+  
+  static String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }
