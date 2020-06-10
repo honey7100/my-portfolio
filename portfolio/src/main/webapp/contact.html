@@ -1,81 +1,98 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Contact</title>
-    <!--<link rel="stylesheet" href="style.css">-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
-  /*body {
-    font: 22px 'Quicksand', sans-serif;
-    background-color: #a8d0e6;
-  }*/
-  h1 {
-    text-align: center;
-    color: #f76c6c;
-  }
-  .fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-  }
-  .fa-linkedin {
-    background: #007bb5;
-    color: white;
-    position: absolute;
-    top: 425px;
-    left: 680px;
-  }
-  .fa-github {
-    position: absolute;
-    top: 400px;
-    left: 740px;
-  }
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  form {
-    font: 20px 'Quicksand', sans-serif;
-    position: absolute;
-    top: 490px;
-    left: 650px;
-  }
-  .center_gif {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top: 80px;
-    left: 900px;
-  }
+    body {
+      background-color: #a8d0e6;
+    }
+
+    h1 {
+      text-align: center;
+      font: 40px 'Quicksand', sans-serif;
+      color: #f76c6c;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgb(49, 47, 47);
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical
+    }
+
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 30px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50%;
+    }
+
+    .fa-linkedin {
+      background: #007bb5;
+      color: white;
+    }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form {
+      font: 20px 'Quicksand', sans-serif;
+    }
+
+    #submit {
+      font: 20px 'Quicksand', sans-serif;
+    }
+
+    .container {
+      border-radius: 5px;
+      background-color: #dfdce3;
+      padding: 20px;
+    }
+
+    .icon-container {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
   </style>
-  </head>
-  <body>
-    <h1>Contact</h1>
-    <img src="https://media1.giphy.com/media/yxicUANit7fTdEdZgr/source.gif" style="width:380px;height:390px" class="center_gif">
+</head>
+
+<body>
+  <h1>Contact</h1>
+  <div class="container">
     <form class="center">
       <label for="first">First name:</label><br>
       <input type="text" id="firstname" name="fname" value""><br>
       <label for="last">Last name:</label><br>
       <input type="text" id="lastname" name="lname" value=""><br>
       <label for="email">Email:</label><br>
-      <input type="text" id="email_at" name="email" value="ex: jane.doe@gmail.com"><br>
+      <input type="text" id="email_at" name="email" value=""><br>
       <label for="msg">Message:</label><br>
       <input type="text" id="msg" name="msg" value=""><br><br>
-      <input type="submit" value="Submit">
+      <input type="submit" id="submit" value="Submit">
     </form>
+  </div>
+
+  <div class="icon-container">
     <a href="https://www.linkedin.com/in/oyin-s/" class="fa fa-linkedin"></a>
-    <a href="https://github.com/honey7100" class="fa fa-github" style="font-size:79px"</a>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+    <a href="https://github.com/honey7100" class="fa fa-github" style="font-size:78px"></a>
+  </div>
+</body>
+
 </html>
