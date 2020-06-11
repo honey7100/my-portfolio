@@ -26,17 +26,16 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
-function getDataServlet() {
-  fetch('/data')
-    .then(response => response.text())
-    .then((message) => {
-      document.getElementById('message-container').innerHTML = message;
-    });
-}
+
 function getCommentsJson() {
   fetch('/data')
-    .then(response => response.text())
-    .then((comment) => {
-      document.getElementById('comment-container').innerHTML = comment;
+    .then(response => response.json())
+    .then((comments) => {
+      var commentContainer= document.getElementById('comment-container');
+      for (var i =0; i< comments.length; i++){
+        var commentElement= document.createElement("P");
+        commentElement.innerText= comments[i];
+        commentContainer.appendChild(commentElement);
+      }
     });
 }
