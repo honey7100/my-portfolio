@@ -19,7 +19,7 @@
     }
 </style>
 
-<body>
+<body onload="getCommentsJson()">
     <h1>"How Grace Hopper Impacted Me"</h1>
     <h2>By: Oyin Sholeye</h2>
     <h3>Posted on May 28, 2020</h3>
@@ -54,9 +54,10 @@
     <p> 1. I was able to interview with Google at the conference which led to me getting and accepting
         and internship offer for STEP.</p>
     <p> 2. I was able to build new friendships with some wonderful girls.</p>
+    <p>Would I do it again? Yes, yes I would!#GHC2020</p>
     <form action="/data" method="POST">
         <label for="comment"> Comments or Questions:</label><br>
-        <input type="text" id="comment" name="comment-input">
+        <input type="text" id="comment" name="comment">
         <input type="submit" value="share">
     </form>
     <div id="comment-container"></div>
