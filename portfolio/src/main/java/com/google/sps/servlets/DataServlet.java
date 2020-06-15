@@ -14,19 +14,64 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that returns some example content. TODO(oyins): modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-
+  List<String> comments = new ArrayList<>();
+  DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+  
   @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+   
+    String comment = getParameter(request, "comment", "");
+    
+    Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("comment", comment);
+    
+    datastore.put(commentEntity);
+    response.sendRedirect("/blog.html");
+  }
+
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello world!</h1>");
+    Query query = new Query("Comment");
+    PreparedQuery commentResult = datastore.prepare(query);
+    
+    for (Entity entity : commentResult.asIterable()) {
+      long id = entity.getKey().getId();
+      String comment = (String) entity.getProperty("comment");
+      comments.add(comment);
+    }
+    
+    response.setContentType("application/json;");
+    response.getWriter().println(convertToJson(comments));
+    
+  }
+
+  static String convertToJson(List comments){
+    Gson gson = new Gson();
+    return gson.toJson(comments);
+  }
+  
+  static String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }

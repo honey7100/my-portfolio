@@ -7,3 +7,14 @@
 #greeting-container {
   margin-top: 20px;
 }
+.body{
+    font:22px 'Quicksand', sans-serif;
+}
+#navbar{
+    display: block;
+    padding: 10px;
+    background-color: #f76c6c;
+}
+.h1{
+    color:black;
+}

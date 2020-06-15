@@ -36,7 +36,7 @@ function handleResponse(response) {
   // content and not a simple variable.
   const textPromise = response.text();
 
-  // When the response is converted to text, pass the result into the
+  // When the response is converted to text, pass the result("quote") into the
   // addQuoteToDom() function.
   textPromise.then(addQuoteToDom);
 }
