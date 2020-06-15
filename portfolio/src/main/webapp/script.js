@@ -27,15 +27,27 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-function getCommentsJson() {
+function getComments() {
   fetch('/data')
     .then(response => response.json())
     .then((comments) => {
       var commentContainer= document.getElementById('comment-container');
+
       for (var i =0; i< comments.length; i++){
         var commentElement= document.createElement("P");
         commentElement.innerText= comments[i];
         commentContainer.appendChild(commentElement);
       }
+      
     });
+}
+
+function getLimitedComments() {
+  var commentContainer= document.getElementById('comment-container');
+  var quantityValue = document.getElementById("quantity").value;
+  for (var i =0; i<=quantityValue ; i++){
+    var commentElement= document.createElement("P");
+    commentElement.innerText= comments[i];
+    commentContainer.appendChild(commentElement);
+  }
 }
